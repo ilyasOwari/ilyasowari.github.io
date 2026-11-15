@@ -1,0 +1,208 @@
+/* ==========================================================================
+   ELT OWARI — 02 Polished Cosmic Frosted Glass 4+2 Bento Home & Portal Hubs
+   ========================================================================== */
+
+.top-glass-header {
+  height: 76px;
+  min-height: 76px;
+  width: 100%;
+  padding: 0 42px;
+  background: rgba(11, 17, 44, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.brand-logo-group { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+.brand-monogram {
+  width: 44px; height: 44px; flex-shrink: 0;
+  filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.25));
+}
+.brand-text-stack { display: flex; flex-direction: column; }
+.brand-title { font-size: 23px; font-weight: 800; letter-spacing: 0.04em; color: #ffffff; line-height: 1.05; }
+.brand-subtitle { font-size: 13px; font-weight: 500; color: #cbd5e1; text-align: right; display: block; margin-top: 2px; }
+
+.header-right-controls { display: flex; align-items: center; gap: 12px; }
+
+.header-icon-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09); border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+.header-icon-btn:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+
+.teacher-avatar-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35); overflow: hidden;
+  background: #334155; display: flex; align-items: center; justify-content: center;
+}
+.teacher-avatar-btn svg { width: 100%; height: 100%; }
+
+/* Home Bento Layout */
+.home-bento-stage {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 8px 24px 18px;
+}
+
+.home-section-heading {
+  font-size: clamp(24px, 2.4vw, 38px); font-weight: 700; color: #ffffff;
+  text-align: center; margin: 6px 0 clamp(14px, 2.2vh, 24px); text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.cosmic-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: minmax(205px, 33vh) minmax(126px, 18vh);
+  gap: clamp(12px, 1.8vw, 24px);
+  width: min(1320px, 92vw);
+  margin: 0 auto 2.5vh auto;
+}
+
+.bento-grade-card {
+  position: relative;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(18px, 2.8vh, 34px) clamp(10px, 1.4vw, 20px) clamp(16px, 2.4vh, 26px);
+  cursor: pointer;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+  overflow: hidden;
+}
+
+.bento-grade-card:hover { transform: translateY(-6px) scale(1.015); }
+
+.grade-rosette-svg {
+  width: clamp(64px, 7.2vw, 96px);
+  height: clamp(64px, 7.2vw, 96px);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.24));
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-grade-card:hover .grade-rosette-svg { transform: rotate(18deg) scale(1.08); }
+
+.grade-card-title { font-size: clamp(20px, 2.3vw, 32px); font-weight: 800; letter-spacing: -0.01em; text-align: center; }
+.card-pill-bar { width: clamp(48px, 5vw, 68px); height: 9px; border-radius: 999px; }
+
+/* Card 1: 5. Sınıf (Refined Neon Purple Glow) */
+.grade-card-5 {
+  background: linear-gradient(160deg, rgba(216, 180, 254, 0.30) 0%, rgba(126, 34, 206, 0.18) 100%);
+  border: 2px solid rgba(233, 213, 255, 0.85);
+  box-shadow: 0 0 34px rgba(192, 132, 252, 0.46), inset 0 1px 3px rgba(255, 255, 255, 0.42);
+}
+.grade-card-5 .grade-card-title { color: #ffffff; }
+.grade-card-5 .card-pill-bar { background: rgba(255, 255, 255, 0.24); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+/* Card 2: 6. Sınıf (Silky Aqua-Lavender Gradient) */
+.grade-card-6 {
+  background: linear-gradient(145deg, #bae6fd 0%, #c7d2fe 50%, #ddd6fe 100%);
+  border: 2px solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 38px rgba(14, 165, 233, 0.25), inset 0 2px 6px rgba(255, 255, 255, 0.88);
+}
+.grade-card-6 .grade-card-title { color: #0f172a; }
+.grade-card-6 .card-pill-bar { background: rgba(15, 23, 42, 0.16); border: 1px solid rgba(15, 23, 42, 0.14); }
+
+/* Card 3: 7. Sınıf */
+.grade-card-7 {
+  background: linear-gradient(160deg, rgba(100, 116, 139, 0.38) 0%, rgba(51, 65, 85, 0.28) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.18);
+}
+.grade-card-7 .grade-card-title { color: #ffffff; }
+.grade-card-7 .card-pill-bar { background: rgba(255, 255, 255, 0.22); border: 1px solid rgba(255, 255, 255, 0.16); }
+
+/* Card 4: 8. Sınıf (Refined Vivid Neon-Orchid Halo) */
+.grade-card-8 {
+  background: linear-gradient(160deg, rgba(139, 92, 246, 0.32) 0%, rgba(88, 28, 135, 0.26) 100%);
+  border: 2px solid rgba(240, 171, 252, 0.9);
+  box-shadow: 0 0 38px rgba(217, 70, 239, 0.54), inset 0 1px 3px rgba(255, 255, 255, 0.42);
+}
+.grade-card-8 .grade-card-title { color: #ffffff; }
+.grade-card-8 .card-pill-bar { background: rgba(255, 255, 255, 0.24); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+/* Row 2: Wide Hub Cards */
+.bento-wide-card {
+  grid-column: span 2;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(71, 85, 105, 0.48) 0%, rgba(30, 41, 59, 0.58) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(14px, 2vh, 20px) clamp(18px, 2.8vw, 36px) clamp(14px, 2.2vh, 24px);
+  cursor: pointer;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.bento-wide-card:hover { transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.48); box-shadow: 0 20px 44px rgba(99, 102, 241, 0.3); }
+.wide-card-heading { font-size: clamp(18px, 2vw, 27px); font-weight: 800; color: #ffffff; letter-spacing: 0.03em; }
+.wide-icon-row { display: flex; width: 100%; justify-content: space-around; align-items: center; }
+.wide-vector-svg { height: clamp(34px, 4.2vw, 54px); width: auto; filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.28)); transition: transform 0.22s ease; }
+.bento-wide-card:hover .wide-vector-svg { transform: scale(1.07); }
+
+/* Portal Drill-Down Explorer & Hubs */
+.explorer-workspace { width: min(1320px, 92vw); margin: 22px auto 40px; display: flex; flex-direction: column; gap: 18px; }
+.explorer-toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 22px; border-radius: 18px; background: rgba(15, 23, 42, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.16); backdrop-filter: blur(16px);
+}
+.explorer-left-nav, .explorer-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.breadcrumb-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 14px; color: var(--text-muted); }
+.breadcrumb-crumb { padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.09); color: #ffffff; font-weight: 600; }
+.breadcrumb-crumb:hover { background: rgba(255, 255, 255, 0.18); }
+.explorer-search {
+  width: 220px; padding: 9px 14px; border-radius: 10px;
+  background: rgba(15, 23, 42, 0.72); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; font-size: 13px;
+}
+
+.explorer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 18px; }
+.folder-card, .material-card, .program-card {
+  position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 12px;
+  padding: 18px; border-radius: 18px; background: rgba(30, 41, 59, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.16); backdrop-filter: blur(16px);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.folder-card:hover, .material-card:hover, .program-card:hover {
+  transform: translateY(-3px); border-color: rgba(168, 85, 247, 0.58); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.program-card.featured-flagship {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.32), rgba(217, 70, 239, 0.24), rgba(15, 23, 42, 0.75));
+  border: 2px solid rgba(240, 171, 252, 0.8);
+  box-shadow: 0 0 36px rgba(168, 85, 247, 0.32);
+}
+
+.card-badge-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.pill-tag {
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 99px;
+  font-size: 11px; font-weight: 700; background: rgba(99, 102, 241, 0.28);
+  border: 1px solid rgba(129, 140, 248, 0.5); color: #e0e7ff;
+}
+.pill-tag.flagship-badge {
+  background: linear-gradient(135deg, #f59e0b, #d946ef);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.card-meta-dates { font-size: 11px; color: #94a3b8; display: flex; flex-direction: column; gap: 2px; }
+.card-footer-btns { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.icon-mini-btn { padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 600; background: rgba(255, 255, 255, 0.09); color: #e2e8f0; }
+.icon-mini-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+@media (max-width: 680px) {
+  body.view-home { overflow-y: auto; height: auto; }
+  body.view-home #app-shell { height: auto; min-height: 100vh; }
+  .cosmic-bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+}

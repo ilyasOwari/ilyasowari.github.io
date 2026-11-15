@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ELT OWARI — by İlyas Owari</title>
+  <link rel="stylesheet" href="css/01-variables-reset.css">
+  <link rel="stylesheet" href="css/02-cosmic-bento-home.css">
+</head>
+<body class="view-home">
+  <!-- Inline SVG Vector Library (100% Offline, Zero Emoji Substitutions) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="rosette-glow" x="-35%" y="-35%" width="170%" height="170%">
+        <feGaussianBlur stdDeviation="4.5" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <linearGradient id="pg-orange" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fdba74"/><stop offset="100%" stop-color="#fb923c"/></linearGradient>
+      <linearGradient id="pg-pink" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f9a8d4"/><stop offset="100%" stop-color="#f472b6"/></linearGradient>
+      <linearGradient id="pg-lavender" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8b4fe"/><stop offset="100%" stop-color="#c084fc"/></linearGradient>
+      <linearGradient id="pg-indigo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a5b4fc"/><stop offset="100%" stop-color="#818cf8"/></linearGradient>
+      <linearGradient id="pg-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#38bdf8"/></linearGradient>
+      <linearGradient id="pg-mint" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a7f3d0"/><stop offset="100%" stop-color="#6ee7b7"/></linearGradient>
+      <linearGradient id="pg-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#86efac"/><stop offset="100%" stop-color="#4ade80"/></linearGradient>
+      <linearGradient id="pg-yellow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fef08a"/><stop offset="100%" stop-color="#fde047"/></linearGradient>
+
+      <symbol id="svg-eo-logo" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="#ffffff" stroke-width="5.2" stroke-linecap="round" stroke-dasharray="145 30" transform="rotate(-20 32 32)"/>
+        <path d="M21 23 C14 27, 14 39, 23 43 C31 46, 42 40, 44 31 C45 24, 38 19, 30 20" fill="none" stroke="#ffffff" stroke-width="4.8" stroke-linecap="round"/>
+        <path d="M22 32 H39" fill="none" stroke="#ffffff" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M40 38 L49 47" fill="none" stroke="#ffffff" stroke-width="4.8" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="svg-rosette-8petal" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="36" fill="rgba(255,255,255,0.12)" filter="url(#rosette-glow)"/>
+        <g filter="url(#rosette-glow)" style="mix-blend-mode:screen">
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-orange)" opacity="0.82" transform="rotate(0 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-pink)" opacity="0.82" transform="rotate(45 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-lavender)" opacity="0.82" transform="rotate(90 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-indigo)" opacity="0.82" transform="rotate(135 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-sky)" opacity="0.82" transform="rotate(180 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-mint)" opacity="0.82" transform="rotate(225 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-green)" opacity="0.82" transform="rotate(270 60 60)"/>
+          <path d="M60 11 C75 11, 79 36, 60 60 C41 36, 45 11, 60 11 Z" fill="url(#pg-yellow)" opacity="0.82" transform="rotate(315 60 60)"/>
+        </g>
+        <circle cx="60" cy="60" r="8.5" fill="#ffffff" opacity="0.32"/>
+      </symbol>
+
+      <symbol id="svg-teacher-avatar" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="32" fill="#3b425c"/>
+        <path d="M16 58 C18 44, 46 44, 48 58 Z" fill="#e11d48"/>
+        <path d="M23 46 L32 54 L41 46 Z" fill="#f8fafc"/>
+        <path d="M18 28 C18 14, 46 14, 46 28 L47 40 C44 43, 20 43, 17 40 Z" fill="#5b342e"/>
+        <circle cx="32" cy="29" r="10.5" fill="#f5cba7"/>
+        <path d="M21 25 C24 18, 40 18, 43 25 C38 22, 26 22, 21 25 Z" fill="#43231f"/>
+        <circle cx="28" cy="29" r="1.4" fill="#1e293b"/>
+        <circle cx="36" cy="29" r="1.4" fill="#1e293b"/>
+        <path d="M29 34 Q32 36.5 35 34" fill="none" stroke="#be123c" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="svg-act-gamepad" viewBox="0 0 84 64">
+        <path d="M22 14 H62 C71 14, 78 24, 79 39 C80 49, 73 54, 65 51 L55 43 H29 L19 51 C11 54, 4 49, 5 39 C6 24, 13 14, 22 14 Z" fill="#6366f1"/>
+        <path d="M22 14 H62 C68 14, 74 20, 76 28 H8 C10 20, 16 14, 22 14 Z" fill="#818cf8" opacity="0.35"/>
+        <rect x="20" y="24" width="5" height="15" rx="2" fill="#ffffff"/>
+        <rect x="15" y="29" width="15" height="5" rx="2" fill="#ffffff"/>
+        <circle cx="59" cy="24" r="3.1" fill="#facc15"/>
+        <circle cx="65" cy="30" r="3.1" fill="#f43f5e"/>
+        <circle cx="59" cy="36" r="3.1" fill="#22c55e"/>
+        <circle cx="53" cy="30" r="3.1" fill="#38bdf8"/>
+      </symbol>
+
+      <symbol id="svg-act-puzzle" viewBox="0 0 72 64">
+        <path d="M12 10 H34 V19 C38 18, 41 21, 41 24 C41 27, 38 30, 34 29 V33 H24 C25 36, 22 39, 19 39 C16 39, 13 36, 14 33 H12 Z" fill="#ef4444"/>
+        <path d="M35 10 H56 V33 H46 C47 36, 44 39, 41 39 C38 39, 35 36, 36 33 H35 V29 C38 30, 41 27, 41 24 C41 21, 38 18, 35 19 Z" fill="#f97316"/>
+        <path d="M12 34 H14 C13 37, 16 40, 19 40 C22 40, 25 37, 24 34 H34 V44 C38 43, 41 46, 41 49 C41 52, 38 55, 34 54 V56 H12 Z" fill="#fbbf24"/>
+        <path d="M35 34 H36 C35 37, 38 40, 41 40 C44 40, 47 37, 46 34 H56 V56 H35 V54 C38 55, 41 52, 41 49 C41 46, 38 43, 35 44 Z" fill="#38bdf8"/>
+      </symbol>
+
+      <symbol id="svg-act-trophy" viewBox="0 0 72 64">
+        <path d="M18 14 H54 V24 C54 36, 46 43, 36 43 C26 43, 18 36, 18 24 Z" fill="#fbbf24"/>
+        <path d="M18 18 H10 C10 28, 13 33, 19 34" fill="none" stroke="#f59e0b" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M54 18 H62 C62 28, 59 33, 53 34" fill="none" stroke="#f59e0b" stroke-width="4.2" stroke-linecap="round"/>
+        <rect x="31" y="42" width="10" height="8" fill="#f59e0b"/>
+        <path d="M22 50 H50 L54 57 H18 Z" fill="#451a03"/>
+        <path d="M24 18 L28 34" stroke="#fde68a" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+      </symbol>
+
+      <symbol id="svg-act-star" viewBox="0 0 68 64">
+        <path d="M34 6 L42.4 23 L61 25.7 L47.5 38.8 L50.7 57.4 L34 48.6 L17.3 57.4 L20.5 38.8 L7 25.7 L25.6 23 Z" fill="#f59e0b" stroke="#fbbf24" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="svg-prog-monitor" viewBox="0 0 78 64">
+        <rect x="8" y="10" width="62" height="40" rx="5" fill="#1e293b"/>
+        <rect x="12" y="14" width="54" height="30" rx="2" fill="#38bdf8"/>
+        <path d="M12 14 H48 L28 44 H12 Z" fill="#7dd3fc" opacity="0.35"/>
+        <rect x="33" y="50" width="12" height="6" fill="#94a3b8"/>
+        <rect x="23" y="56" width="32" height="4" rx="2" fill="#cbd5e1"/>
+      </symbol>
+
+      <symbol id="svg-prog-gear" viewBox="0 0 64 64">
+        <path d="M27 6 H37 L38.5 12.2 A20 20 0 0 1 43.8 14.4 L49.2 10.8 L56.2 17.8 L52.6 23.2 A20 20 0 0 1 54.8 28.5 L61 30 V40 L54.8 41.5 A20 20 0 0 1 52.6 46.8 L56.2 52.2 L49.2 59.2 L43.8 55.6 A20 20 0 0 1 38.5 57.8 L37 64 H27 L25.5 57.8 A20 20 0 0 1 20.2 55.6 L14.8 59.2 L7.8 52.2 L11.4 46.8 A20 20 0 0 1 9.2 41.5 L3 40 V30 L9.2 28.5 A20 20 0 0 1 11.4 23.2 L7.8 17.8 L14.8 10.8 L20.2 14.4 A20 20 0 0 1 25.5 12.2 Z" fill="#94a3b8" transform="translate(0,-3)"/>
+        <circle cx="32" cy="32" r="10.5" fill="#1e293b"/>
+      </symbol>
+
+      <symbol id="svg-prog-code" viewBox="0 0 76 64">
+        <path d="M25 18 L10 32 L25 46" fill="none" stroke="#f59e0b" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M51 18 L66 32 L51 46" fill="none" stroke="#f59e0b" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M43 13 L33 51" fill="none" stroke="#10b981" stroke-width="6" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="svg-prog-chrome" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="#facc15"/>
+        <path d="M10.5 19 A26 26 0 0 1 54.5 19 L32 19 L21 38 Z" fill="#ef4444"/>
+        <path d="M10.5 19 A26 26 0 0 0 31.5 58 L41 40 L21 38 Z" fill="#22c55e"/>
+        <path d="M32 19 H54.5 A26 26 0 0 1 31.5 58 L41 40 Z" fill="#facc15"/>
+        <circle cx="32" cy="32" r="12.5" fill="#ffffff"/>
+        <circle cx="32" cy="32" r="9.6" fill="#3b82f6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div id="app-shell">
+    <header id="app-header" class="top-glass-header"></header>
+    <main id="main-viewport"></main>
+  </div>
+  <div id="modal-root"></div>
+
+  <script defer src="js/core/01-namespace-registry.js"></script>
+  <script defer src="js/core/02-storage-indexeddb.js"></script>
+  <script defer src="js/core/03-audio-synthesizer.js"></script>
+  <script defer src="js/ui/01-cosmic-home-portal.js"></script>
+</body>
+</html>
