@@ -306,6 +306,7 @@
             '<div class="explorer-actions">' +
               '<select class="form-select" id="prog-filter" style="width:auto">' +
                 '<option value="ALL"' + (filter === "ALL" ? " selected" : "") + '>Tüm Platformlar</option>' +
+                '<option value="Web App"' + (filter === "Web App" ? " selected" : "") + '>Web App</option>' +
                 '<option value="Offline App"' + (filter === "Offline App" ? " selected" : "") + '>Offline Smartboard App</option>' +
                 '<option value="Chrome Extension"' + (filter === "Chrome Extension" ? " selected" : "") + '>Chrome Extension</option>' +
                 '<option value="Pardus Linux"' + (filter === "Pardus Linux" ? " selected" : "") + '>Pardus Linux</option>' +
@@ -330,7 +331,7 @@
                 '<p style="font-size:13.5px;color:#e2e8f0;line-height:1.5">' + esc(p.description) + '</p>' +
                 '<div class="card-footer-btns">' +
                   (p.fileData ? '<a class="btn-primary" style="text-decoration:none;padding:8px 14px;font-size:13px" download="' + esc(p.fileName || "package") + '" href="' + p.fileData + '">⬇ İndir</a>'
-                    : (p.url ? '<a class="btn-primary" style="text-decoration:none;padding:8px 16px;font-size:13px" target="_blank" rel="noopener" href="' + esc(p.url) + '">' + (p.featured ? "🚀 Vocab Galaxy'yi Başlat / İncele" : "🔗 Bağlantıya Git") + '</a>' : '<span></span>')) +
+                    : (p.url ? '<a class="btn-primary" style="text-decoration:none;padding:8px 16px;font-size:13px" target="_blank" rel="noopener" href="' + esc(p.url) + '">' + (p.featured ? "🚀 Vocab Galaxy'yi Başlat / İncele" : (p.url.indexOf("./apps/") === 0 ? "🚀 Uygulamayı Aç" : "🔗 Bağlantıya Git")) + '</a>' : '<span></span>')) +
                   (p.featured ? '' : '<button type="button" class="icon-mini-btn btn-danger" data-del-prog="' + esc(p.id) + '">🗑️</button>') +
                 '</div></div>';
             }).join("") +
@@ -355,7 +356,7 @@
         '<div class="form-field"><label>Başlık</label><input id="pm-title" class="form-input"></div>' +
         '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">' +
           '<div class="form-field"><label>Sürüm</label><input id="pm-ver" class="form-input" value="1.0.0"></div>' +
-          '<div class="form-field"><label>Platform</label><select id="pm-plat" class="form-select"><option>Chrome Extension</option><option>Pardus Linux</option><option>Windows</option><option>Windows &amp; Pardus Smartboard • Offline App</option></select></div>' +
+          '<div class="form-field"><label>Platform</label><select id="pm-plat" class="form-select"><option>Web App • Tarayıcı Tabanlı</option><option>Chrome Extension</option><option>Pardus Linux</option><option>Windows</option><option>Windows &amp; Pardus Smartboard • Offline App</option></select></div>' +
         '</div>' +
         '<div class="form-field"><label>Açıklama</label><textarea id="pm-desc" class="form-textarea" rows="3"></textarea></div>' +
         '<div class="form-field"><label>Bağlantı URL</label><input id="pm-url" class="form-input" placeholder="https://..."></div>' +

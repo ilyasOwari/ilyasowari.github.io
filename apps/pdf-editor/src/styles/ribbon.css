@@ -1,0 +1,76 @@
+/* Ribbon: one compact row of soft group cards; each group has its own gentle colour. */
+.ribbon {
+  display: flex; align-items: stretch; gap: 5px; flex: none; overflow: hidden;
+  background: #fff; padding: 6px 10px 5px; min-height: 78px; position: relative; z-index: 6;
+  box-shadow: 0 1px 0 rgba(30,40,80,.06), 0 4px 16px rgba(30,40,80,.06);
+  font-family: "PF UI", var(--font);
+}
+.rb-brand { display: flex; align-items: center; padding: 0 6px 0 2px; }
+.rb-brand img { width: 30px; height: 30px; filter: drop-shadow(0 2px 4px rgba(47,91,234,.25)); }
+.rb-group {
+  --gc: #5b6b8c; --gt: color-mix(in srgb, var(--gc) 13%, white); --gh: color-mix(in srgb, var(--gc) 8%, white);
+  display: flex; flex-direction: column; align-items: stretch; flex: none;
+  padding: 3px 4px 2px; border-radius: 14px; background: #f7f8fc; border: 1px solid #eef0f6;
+}
+.rb-group[data-group=history] { --gc: #5b77a3; }
+.rb-group[data-group=select] { --gc: #5059d8; }
+.rb-group[data-group=blocks] { --gc: #8b4fd8; }
+.rb-group[data-group=insert] { --gc: #1f9d63; }
+.rb-group[data-group=bg] { --gc: #129aa0; }
+.rb-group[data-group=page] { --gc: #e07a1f; }
+.rb-group[data-group=view] { --gc: #5f6b7d; }
+.rb-group[data-group=file] { --gc: #2f5bea; background: transparent; border-color: transparent; }
+.rb-items { display: flex; align-items: center; gap: 3px; flex: 1; }
+.rb-items > * { flex: none; }
+.rb-label { text-align: center; font-size: 10.5px; letter-spacing: .3px; color: color-mix(in srgb, var(--gc) 70%, #6b7385); font-weight: 700; padding-top: 1px; white-space: nowrap; }
+/* icon tiles (duotone: tinted tile + coloured glyph) */
+.ic { display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--gt); color: var(--gc); transition: background .15s, transform .15s; font-style: normal; }
+.ic .icon { width: 21px; height: 21px; stroke-width: 2; }
+.ic .icon * { stroke-width: 2; }
+.rb-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  min-width: 50px; height: 58px; padding: 3px 5px; border: none; border-radius: 12px; background: none;
+  cursor: pointer; color: #2b3345; position: relative; transition: background .15s, box-shadow .15s;
+}
+.rb-btn .ic { width: 34px; height: 30px; }
+.rb-btn span { font-size: 11px; font-weight: 600; line-height: 1.12; white-space: normal; max-width: 74px; text-align: center; overflow-wrap: normal; hyphens: manual; }
+.rb-pair { display: flex; gap: 3px; flex: none; }
+.rb-btn:hover:not(:disabled) { background: #fff; box-shadow: 0 2px 8px rgba(30,40,80,.10); }
+.rb-btn:hover:not(:disabled) .ic { transform: translateY(-1px); background: color-mix(in srgb, var(--gc) 20%, white); }
+.rb-btn:active:not(:disabled) { transform: translateY(1px); }
+.rb-btn.active, .rb-small.active { background: var(--gt); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--gc) 45%, white); }
+.rb-btn.active .ic, .rb-small.active .ic { background: var(--gc); color: #fff; }
+.rb-btn:disabled, .rb-small:disabled, .rb-icon:disabled { cursor: default; color: #9aa1b0; }
+.rb-btn:disabled .ic, .rb-small:disabled .ic, .rb-icon:disabled .ic { background: #eef0f4; color: #b3b9c6; }
+.rb-btn .caret { position: absolute; right: 4px; top: 8px; width: 9px; height: 9px; opacity: .55; }
+.rb-stack { display: flex; flex-direction: column; gap: 3px; flex: none; }
+.rb-small { display: flex; align-items: center; gap: 7px; height: 27px; padding: 0 9px 0 3px; border-radius: 9px; border: none; background: none; cursor: pointer; color: #2b3345; transition: background .15s, box-shadow .15s; }
+.rb-small .ic { width: 23px; height: 23px; border-radius: 7px; }
+.rb-small .ic .icon { width: 16px; height: 16px; }
+.rb-small span { font-size: 12px; font-weight: 600; }
+.rb-small:hover:not(:disabled) { background: #fff; box-shadow: 0 2px 8px rgba(30,40,80,.10); }
+.rb-spacer { flex: 1; min-width: 8px; }
+.rb-zoom { display: flex; align-items: center; gap: 3px; }
+.rb-zoom .zval { min-width: 52px; text-align: center; font-size: 12px; font-weight: 700; color: #3c4558; background: #fff; border-radius: 999px; padding: 6px 6px; border: 1px solid #e3e6ee; cursor: pointer; }
+.rb-zoom .zval:hover { border-color: color-mix(in srgb, var(--gc) 40%, white); }
+.rb-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 999px; border: none; background: none; cursor: pointer; padding: 0; }
+.rb-icon .ic { width: 30px; height: 30px; border-radius: 999px; }
+.rb-icon .ic .icon { width: 18px; height: 18px; }
+.rb-icon:hover:not(:disabled) .ic { background: color-mix(in srgb, var(--gc) 22%, white); }
+/* file group: primary save pill */
+.rb-file .rb-items { gap: 6px; }
+.rb-file .rb-btn.primary { background: linear-gradient(180deg, #3f6cf5, #2a52e0); color: #fff; box-shadow: 0 4px 12px rgba(47,91,234,.32); min-width: 64px; }
+.rb-file .rb-btn.primary .ic { background: rgba(255,255,255,.18); color: #fff; }
+.rb-file .rb-btn.primary:hover { filter: brightness(1.06); box-shadow: 0 6px 16px rgba(47,91,234,.38); }
+.rb-file .rb-btn[data-cmd=saveAs] { background: #fff; box-shadow: inset 0 0 0 1.5px #d5def9; }
+.rb-file .rb-btn[data-cmd=saveAs]:hover { box-shadow: inset 0 0 0 1.5px #9fb4f5, 0 2px 8px rgba(30,40,80,.10); }
+.rb-menu { position: fixed; z-index: 110; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); padding: 6px; min-width: 200px; font-family: "PF UI", var(--font); }
+/* progressive compaction (narrow windows): buttons get tighter, labels always stay under the icons */
+.ribbon.c1 .rb-brand { display: none; }
+.ribbon.c1 { gap: 4px; padding-left: 6px; padding-right: 6px; }
+.ribbon.c2 .rb-btn { min-width: 44px; padding: 3px 3px; } .ribbon.c2 .rb-group { padding: 3px 3px 2px; } .ribbon.c2 .rb-btn span { max-width: 64px; }
+.ribbon.c3 .rb-btn .ic { width: 30px; height: 27px; } .ribbon.c3 .rb-btn span { font-size: 10.5px; } .ribbon.c3 .rb-items, .ribbon.c3 .rb-pair { gap: 2px; }
+.ribbon.c4 .rb-zoom [data-cmd=fitWidth] { display: none; } .ribbon.c4 .rb-zoom .zval { min-width: 42px; padding: 5px 3px; } .ribbon.c4 { gap: 3px; }
+.ribbon.c5 .rb-btn { min-width: 38px; padding: 3px 2px; } .ribbon.c5 .rb-btn span { font-size: 10px; max-width: 56px; } .ribbon.c5 .rb-btn .caret { right: 1px; }
+.ribbon.c6 .rb-btn span { font-size: 9.5px; max-width: 50px; letter-spacing: -.1px; } .ribbon.c6 .rb-group { padding: 2px 2px 2px; border-radius: 11px; } .ribbon.c6 .rb-btn .ic { width: 28px; height: 25px; } .ribbon.c6 .rb-label { font-size: 9.5px; }
+.ribbon.c7 .rb-btn { min-width: 34px; } .ribbon.c7 .rb-btn span { font-size: 9px; max-width: 46px; } .ribbon.c7 .rb-zoom .rb-icon { width: 26px; } .ribbon.c7 .rb-zoom .rb-icon .ic { width: 25px; height: 25px; }

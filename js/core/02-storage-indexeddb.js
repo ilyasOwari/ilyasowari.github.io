@@ -42,9 +42,29 @@
         dbCache = {
           folders: clone(app.SeedData.folders),
           materials: clone(app.SeedData.materials),
-          programs: clone(app.SeedData.programs)
+          programs: clone(app.SeedData.programs),
+          syncedSeeds: app.SeedData.programs.map(function (p) { return p.id; })
         };
         saveDB(dbCache);
+      } else {
+        var dirty = false;
+        if (!Array.isArray(dbCache.syncedSeeds)) { dbCache.syncedSeeds = []; dirty = true; }
+        if (!Array.isArray(dbCache.programs)) { dbCache.programs = []; dirty = true; }
+        app.SeedData.programs.forEach(function (sp) {
+          if (dbCache.syncedSeeds.indexOf(sp.id) === -1) {
+            var exists = dbCache.programs.some(function (p) { return p.id === sp.id; });
+            if (!exists) {
+              if (dbCache.programs.length > 0 && dbCache.programs[0].id === "prog-vocab-galaxy") {
+                dbCache.programs.splice(1, 0, clone(sp));
+              } else {
+                dbCache.programs.push(clone(sp));
+              }
+            }
+            dbCache.syncedSeeds.push(sp.id);
+            dirty = true;
+          }
+        });
+        if (dirty) saveDB(dbCache);
       }
       return dbCache;
     }

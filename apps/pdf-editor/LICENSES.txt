@@ -1,0 +1,14 @@
+Third-party components bundled for offline use
+- pdf.js 4.10.38 (vendor/pdfjs) — Apache License 2.0, Mozilla Foundation
+- pdf-lib 1.17.1 (vendor/pdf-lib.esm.min.js) — MIT License
+- @pdf-lib/fontkit 1.1.1 + pako (vendor/fontkit.esm.js) — MIT License
+- tesseract.js 5.1.1 + tesseract.js-core 5.1.x, SIMD/LSTM build (vendor/tesseract) — Apache License 2.0
+- Tesseract trained data tur + eng, 4.0.0_best_int (vendor/tesseract/lang) — Apache License 2.0
+- onnxruntime-web 1.31.1, WASM build (vendor/ort) — MIT License, Microsoft Corporation
+- PaddleOCR PP-OCRv5 models: mobile text detection + latin recognition, ONNX (assets/models/paddle) — Apache License 2.0,
+  PaddlePaddle Authors (ONNX exports: PaddlePaddle/PP-OCRv5_mobile_det_onnx, monkt/paddleocr-onnx)
+- Standard 14 font metrics (assets/std14.json) from @pdf-lib/standard-fonts — MIT (Adobe AFM data)
+Fonts (assets/fonts, subset to Latin + Turkish, re-encoded):
+- SIL Open Font License 1.1: Andika, Archivo Black, Carlito, Comic Relief, Fira Sans,
+  Liberation Sans, Montserrat, Nunito, Open Sans, Varela Round
+- Apache License 2.0: Caladea, Cousine, Roboto, Tinos

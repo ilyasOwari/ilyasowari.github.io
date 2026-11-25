@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Flow by Owari</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="src/styles/base.css" />
+  <link rel="stylesheet" href="src/styles/ribbon.css" />
+  <link rel="stylesheet" href="src/styles/workspace.css" />
+  <link rel="stylesheet" href="src/styles/blocks.css" />
+  <link rel="stylesheet" href="src/styles/modals.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header id="ribbon" class="ribbon" hidden></header>
+    <div class="main">
+      <aside id="sidebar" class="sidebar" hidden></aside>
+      <main id="workspace" class="workspace" tabindex="-1"></main>
+    </div>
+    <footer id="statusbar" class="statusbar" hidden></footer>
+    <section id="welcome" class="welcome"></section>
+  </div>
+  <div id="overlay-root"></div>
+  <input id="file-input" type="file" accept="application/pdf,.pdf" hidden />
+  <input id="merge-pdf-input" type="file" accept="application/pdf,.pdf" multiple hidden />
+  <input id="image-input" type="file" accept="image/png,image/jpeg" hidden />
+  <script>
+    // Safety net: if the program cannot start, show a friendly message instead of a blank page.
+    (function () {
+      var shown = false;
+      function esc(x) { return String(x).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+      window.__pfFail = function (err, fileMode) {
+        if (shown || window.__pfReady) return; shown = true;
+        if (location.protocol === 'file:') fileMode = true;
+        var d = document.createElement('div');
+        d.id = 'pf-fail'; d.setAttribute('data-testid', 'pf-fail');
+        d.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#f4f6fb;z-index:99999;font-family:Segoe UI,system-ui,sans-serif;color:#1f2937';
+        var detail = err ? esc((err && (err.message || err.reason || err)) || '') : '';
+        var body = fileMode
+          ? '<p style="margin:0 0 10px">Program bu şekilde açılamaz. Lütfen klasördeki <b>“PDF Flow by Owari.bat”</b> dosyasına çift tıklayarak açın.</p>'
+          : '<p style="margin:0 0 10px">Program açılırken bir sorun oluştu. Lütfen önce <b>Yeniden dene</b>’ye basın.</p>' +
+            '<p style="margin:0 0 14px;color:#4b5563">Düzelmezse siyah pencereyi kapatıp <b>“PDF Flow by Owari.bat”</b> dosyasını yeniden çalıştırın. ' +
+            'Yine olmazsa <b>Kayıtlı ayarları temizle</b>’yi deneyin (PDF dosyalarınız silinmez).</p>' +
+            '<button id="pf-retry" style="font:inherit;padding:8px 16px;border-radius:8px;border:0;background:#2563eb;color:#fff;cursor:pointer;margin-right:8px">Yeniden dene</button>' +
+            '<button id="pf-reset" style="font:inherit;padding:8px 16px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;cursor:pointer">Kayıtlı ayarları temizle</button>';
+        d.innerHTML = '<div style="max-width:520px;background:#fff;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.12);padding:26px 28px;font-size:15px;line-height:1.5">' +
+          '<h2 style="margin:0 0 12px;font-size:19px">PDF Flow by Owari açılamadı</h2>' + body +
+          (detail ? '<div style="margin-top:16px;font-size:11px;color:#9ca3af;word-break:break-word">Ayrıntı: ' + detail + '</div>' : '') + '</div>';
+        (document.body || document.documentElement).appendChild(d);
+        var r = document.getElementById('pf-retry'); if (r) r.onclick = function () { location.reload(); };
+        var c = document.getElementById('pf-reset'); if (c) c.onclick = function () {
+          try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf('pdfflow') === 0) localStorage.removeItem(k); }); } catch (e) {}
+          try { var q = indexedDB.deleteDatabase('pdfflow'); q.onsuccess = q.onerror = q.onblocked = function () { location.reload(); }; } catch (e) { location.reload(); }
+        };
+      };
+            window.addEventListener('error', function (e) { if (!window.__pfReady) window.__pfFail(e.error || e.message || 'error'); });
+      window.addEventListener('unhandledrejection', function (e) { if (!window.__pfReady) window.__pfFail(e.reason || 'error'); });
+      setTimeout(function () { if (!window.__pfReady) window.__pfFail('başlatma zaman aşımı'); }, 12000);
+    })();
+  </script>
+  <script type="module" src="src/main.js" onerror="window.__pfFail && window.__pfFail('src/main.js yüklenemedi')"></script>
+</body>
+</html>

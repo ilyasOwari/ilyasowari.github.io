@@ -88,6 +88,18 @@
       createdAt: isoNow
     },
     {
+      id: "prog-pdf-editor",
+      featured: false,
+      title: "PDF Editor",
+      version: "5.2",
+      platform: "Web App • Tarayıcı Tabanlı",
+      description: "PDF Flow by Owari — Kurulum gerektirmeden tarayıcıda PDF düzenleme, metin/görsel ekleme, sayfa birleştirme ve Türkçe/İngilizce OCR desteği sunan web uygulaması.",
+      url: "./apps/pdf-editor/index.html",
+      fileName: "",
+      fileData: "",
+      createdAt: isoNow
+    },
+    {
       id: "prog-1",
       featured: false,
       title: "OWARI Vocab Clipper",
